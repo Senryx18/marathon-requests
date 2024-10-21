@@ -1,1 +1,8 @@
+SELECT DISTINCT re.BibNumber, r.CountryCode
+FROM Runner r
+INNER JOIN Registration reg ON r.RunnerId = reg.RunnerId
+INNER JOIN RegistrationStatus rs ON reg.RegistrationStatusId = rs.RegistrationStatusId
+INNER JOIN RegistrationEvent re ON reg.RegistrationId = re.RegistrationId  
+INNER JOIN Event e ON re.EventId = e.EventId;
+
 

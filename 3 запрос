@@ -1,1 +1,8 @@
+select e.eventname, m.MarathonName, u.LastName,
+(INTERVAL '1 second' * racetime) AS Время_Забега
+from event e 
+inner join Marathon m on e.MarathonId = m.MarathonId
+inner join RegistrationEvent rei on e.EventId = rei.EventId
+inner join Runner r on m.CountryCode = r.CountryCode
+inner join Users u on r.Email = u.Email;
 

@@ -1,1 +1,7 @@
-
+SELECT gender as Пол,
+       EXTRACT(YEAR FROM AGE(NOW(), r.DateOfBirth)) AS Возраст,
+       racetime,
+       eventid
+FROM runner r
+JOIN registrationevent ON runnerid = runnerid
+WHERE racetime > 0;
